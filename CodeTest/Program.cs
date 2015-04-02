@@ -11,36 +11,14 @@ namespace CodeTest
     {
         static void Main(string[] args)
         {
-            FileInfo fi = new FileInfo(@"C:\Users\shum\Documents\Freelancer\Code Test\names.txt");
             try
             {
-                using(StreamReader sr = fi.OpenText())
-                {
-                    string content = sr.ReadToEnd();
-                    //split the string into an array of strings
-                    string[] stringArray = content.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
-                    //remove the quotes from the string
-                    List<string> stringList = new List<string>();
-                    foreach(string st in stringArray)
-                    {
-                        stringList.Add(st.Replace("\"", ""));
-                    }
-                    //sort the list
-                    //stringList.OrderBy(x => x.ToLower).Select();
-                    stringList.Sort();
-                    //find collin
-                    int count = 1;
-                    foreach (string st in stringList)
-                    {
-                        if(st.ToLower() == "colin")
-                        {
-                            Console.WriteLine("Index is {0}", count);
-                            Console.ReadLine();
-                            return;
-                        }
-                        count++;
-                    }
-                }
+                Sort sorter = new Sort(@"C:\Users\shum\Documents\Freelancer\Code Test\names.txt");
+                //SortItem st = sorter.items.Where(x => x.word == "COLIN").FirstOrDefault();
+                //if(st == null)
+                //{
+                //    Console.Write("NULL");
+                //}
             }
             catch(Exception ex)
             {

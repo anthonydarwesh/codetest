@@ -11,7 +11,7 @@ namespace CodeTest
     {
         string filePath { get; set; }
         List<string> stringList { get; set; }
-        List<SortItem> items { get; set; }
+        public List<SortItem> items { get; set; }
         public Sort(string filePath)
         {
             this.filePath = filePath;
@@ -33,7 +33,7 @@ namespace CodeTest
                 this.stringList.Sort();                
             }
             //add the sortitems from the list
-            int index = 0;
+            int index = 1;
             foreach(string st in this.stringList)
             {
                 SortItem si = new SortItem();
