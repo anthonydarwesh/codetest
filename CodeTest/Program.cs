@@ -25,12 +25,28 @@ namespace CodeTest
                     {
                         stringList.Add(st.Replace("\"", ""));
                     }
+                    //sort the list
+                    //stringList.OrderBy(x => x.ToLower).Select();
+                    stringList.Sort();
+                    //find collin
+                    int count = 1;
+                    foreach (string st in stringList)
+                    {
+                        if(st.ToLower() == "colin")
+                        {
+                            Console.WriteLine("Index is {0}", count);
+                            Console.ReadLine();
+                            return;
+                        }
+                        count++;
+                    }
                 }
             }
             catch(Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
+            Console.ReadLine();
         }
     }
 }
