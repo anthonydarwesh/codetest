@@ -14,10 +14,17 @@ namespace CodeTest
             FileInfo fi = new FileInfo(@"C:\Users\shum\Documents\Freelancer\Code Test\names.txt");
             try
             {
-                using(StreamReader st = fi.OpenText())
+                using(StreamReader sr = fi.OpenText())
                 {
-                    string content = st.ReadToEnd();
+                    string content = sr.ReadToEnd();
+                    //split the string into an array of strings
                     string[] stringArray = content.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+                    //remove the quotes from the string
+                    List<string> stringList = new List<string>();
+                    foreach(string st in stringArray)
+                    {
+                        stringList.Add(st.Replace("\"", ""));
+                    }
                 }
             }
             catch(Exception ex)
